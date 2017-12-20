@@ -1,0 +1,140 @@
+ae galer fucei muito e achei o que eu queria ta ai: 
+
+Mover ou copiar pastas do windows 
+posted May 4, 2010 6:33 AM by wKad Johann Felipe Voigt [ updated May 4, 2010 7:44 AM ] 
+O Delphi nos dá diversas formas simples de fazer algumas coisas. Podemos mover arquivos usando a função MoveFile(), 
+da unit Windows, que apenas pede dois parâmetros PChar: Origem e Destino. 
+
+A CopyFile(), também da unit Windows, é tão simples quanto a anterior, mas tem um parâmetro a mais, onde você pode 
+decidir o que fazer caso o destino já exista (é um booleano, true para cancelar, false para sobrescrever). 
+
+Mas ambas funcionam apenas para arquivos, e não para pastas. Cedo ou tarde a gente cai na necessidade de mover ou copiar 
+pastas... Então, aqui está. Não está pronto, então vamos ter que trabalhar um pouco nisso. 
+
+Trabalhando com pastas 
+
+
+O processo é feito em cima da função ShFileOperation(), da unit ShellAPI. Ela retorna um valor inteiro (zero quando a 
+operação teve sucesso, não-zero quando falhou), e pede apenas um parâmetro do tipo TShFileOpStruct. 
+
+O nome é um pouco grande, mas ele não passa de um record (registro, estrutura), declarado também na ShellAPI. Depois de 
+navegar um instante por essa unit, encontramos a declaração dele (na verdade, o TSHFileOpStruct é um TSHFileOpStructA, que 
+é um _SHFILEOPSTRUCTA, que é realmente declarado). 
+
+_SHFILEOPSTRUCTW = packed record 
+Wnd: HWND; 
+wFunc: UINT; 
+pFrom: PWideChar; 
+pTo: PWideChar; 
+fFlags: FILEOP_FLAGS; 
+fAnyOperationsAborted: BOOL; 
+hNameMappings: Pointer; 
+lpszProgressTitle: PWideChar; { only used if FOF_SIMPLEPROGRESS } 
+end; 
+
+
+Precisamos usar apenas metade desses atributos, o Wnd, o wFunc, o pFrom, o pTo e o fFlags. 
+
+Wnd é o Window Handle da operação. Um Handle é mais ou menos como um ponteiro para uma janela do windows 
+(ele usa handles para se referir às janelas). Podemos preencher ele com qualquer handle válido, sendo que o mais 
+prático é o handle do nosso próprio programa, ou seja, Application.handle. 
+
+wFunc é o mais interessante, ele diz qual operação será feita. É um valor inteiro, e espera-se que usemos as constantes declaradas também na ShellAPI: 
+
+FO_MOVE = $0001; 
+FO_COPY = $0002; 
+FO_DELETE = $0003; 
+FO_RENAME = $0004; 
+
+
+Nessa ordem, para mover, copiar, deletar ou renomear arquivos ou pastas. FO é, eu acho, abreviatura para File Operation. 
+
+pFrom e pTo são apenas strings contendo a origem e o destino, respectivamente, da operação. 
+
+Mais opções 
+
+o fFlags funciona de forma semelhante ao wFunc, mas é muito mais prático usar as constantes aqui. 
+A propósito, seguem elas (também declaradas na ShellAPI): 
+
+FOF_MULTIDESTFILES = $0001; 
+FOF_CONFIRMMOUSE = $0002; 
+FOF_SILENT = $0004; 
+FOF_RENAMEONCOLLISION = $0008; 
+FOF_NOCONFIRMATION = $0010; 
+FOF_WANTMAPPINGHANDLE = $0020; 
+FOF_ALLOWUNDO = $0040; 
+FOF_FILESONLY = $0080; 
+FOF_SIMPLEPROGRESS = $0100; 
+FOF_NOCONFIRMMKDIR = $0200; 
+FOF_NOERRORUI = $0400; 
+
+
+Assim, alguns nomes delas são bastante auto-explicativos (a propósito, acho que FOF significa File Operation Flag), 
+mas vale a pena ver eles mais aprofundadamente... 
+
+FOF_MULTIDESTFILES indica que, no campo pTo, haverá um destino para cada arquivo no pFrom. Eu não testei esta opção, 
+mas acredito que a separação dos destinos seja feita com ponto-e-vírgula (";"). 
+
+FOF_SILENT indica que você não quer nenhuma caixa de mensagem (diálogos) durante o processo. 
+
+FOF_RENAMEONCOLLISION indica que, caso já exista algum arquivo no destino, ele será movido/copiado com o 
+nome "Cópia de..." (sabe? Bem como o Windows faz, já que é uma API do Windows). Eu não testei essa opção, então não sei 
+se ela funciona com o wFunc FO_MOVE. 
+
+FOF_NOCONFIRMATION indica que o usuário nunca será perguntado de nada ("Deseja sobrescrever?", por exemplo. Todas as respostas ficam "Sim"). 
+Note que é muito parecido com FOF_SILENT, mas este último suprime todas as mensagens, não apenas as de confirmação. 
+
+FOF_ALLOWUNDO indica que o arquivo será movido para a lixeira (talvez seja ignorado quando o wFunc não seja FO_DELETE). 
+
+FOF_FILESONLY indica que serão usados apenas arquivos, e não pastas (bem, não ajuda no meu problema, mas enfim...). 
+
+FOF_SIMPLEPROGRESS indica que, na tela de progresso, não serão mostrados os nomes dos arquivos. 
+
+FOF_NOCONFIRMMKDIR indica que não será exibida mensagem de confirmação para o usuário, 
+se precisar criar uma nova pasta (será criada automaticamente). 
+
+FOF_NOERRORUI indica que não será exibida nenhuma mensagem de erro. 
+
+FOF_CONFIRMMOUSE e FOF_WANTMAPPINGHANDLE, não tenho certeza sobre a função desses, mas eles não serão usados por enquanto, 
+então acho melhor eu não falar, para evitar falar errado... 
+
+Agora, uma nota sobre o uso do fFlags. Você pode ter reparado que temos apenas um atributo e vários valores, e que provavelmente 
+iremos usar mais de um valor ao mesmo tempo. A solução é bastante simples: usando o operador booleano or. Como eu disse, as constantes 
+são inteiras, e foram definidas com cuidado para que as combinações fossem únicas. Assim, se eu definir o fFlags como FOF_SILENT or FOF_ALLOWUNDO, 
+ele vai ser silencioso e enviar para a lixeira. 
+
+Prática 
+Bom, e finalmente, o exemplo. Criei uma função simples, para o meu objetivo: Mover ou copiar pastas. 
+
+unit untMoveCopiaDiretorios; 
+
+interface 
+
+function moveCopiaDiretorios(pOperacao: Integer; pOrigem, pDestino: string):Boolean; 
+
+implementation 
+
+uses ShellAPI, Windows, FileCtrl, Forms; 
+
+function moveCopiaDiretorios(pOperacao: Integer; pOrigem, pDestino: string):Boolean; 
+var 
+recOperacao : TShFileOpStruct; 
+begin 
+Result := False; 
+if(pOrigem<>'')and(pDestino<>'')and(DirectoryExists(pOrigem))then 
+begin 
+pOrigem := pOrigem+#0; 
+pDestino := pDestino+#0; 
+FillChar(recOperacao, Sizeof(TShFileOpStruct), 0); 
+
+recOperacao.Wnd := Application.Handle; 
+recOperacao.wFunc := pOperacao; 
+recOperacao.pFrom := PChar(pOrigem); 
+recOperacao.pTo := PChar(pDestino); 
+recOperacao.fFlags := FOF_ALLOWUNDO or FOF_SIMPLEPROGRESS or FOF_NOCONFIRMATION; 
+
+result:= ShFileOperation(recOperacao)=0; 
+end; 
+end; 
+
+end. 

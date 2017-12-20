@@ -1,0 +1,49 @@
+object VideoManual: TVideoManual
+  Left = 0
+  Top = 0
+  AlphaBlend = True
+  AlphaBlendValue = 250
+  BorderStyle = bsNone
+  Caption = 'VideoManual'
+  ClientHeight = 780
+  ClientWidth = 1040
+  Color = clBackground
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PopupMode = pmExplicit
+  Visible = True
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnKeyPress = OnKeyPress
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel_video: TPanel
+    Left = 0
+    Top = -2
+    Width = 1024
+    Height = 768
+    Color = clBackground
+    UseDockManager = False
+    FullRepaint = False
+    ParentBackground = False
+    TabOrder = 0
+    Visible = False
+    object MediaPlayer1: TMediaPlayer
+      Left = 89
+      Top = 169
+      Width = 253
+      Height = 30
+      Display = Panel_video
+      Visible = False
+      TabOrder = 0
+    end
+  end
+  object Timer1: TTimer
+    Interval = 1
+    OnTimer = Timer1Timer
+  end
+end

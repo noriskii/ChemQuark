@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2013/01/28 21:41:48.921.pas,C:\Users\Gaspar\Desktop\ChemQuark\Unit1.pas=C:\Users\Gaspar\Desktop\ChemQuark\Src\GameStoichiometric.pas</Transaction>
+    <Transaction>2013/01/28 21:41:48.956.dfm,C:\Users\Gaspar\Desktop\ChemQuark\Unit1.dfm=C:\Users\Gaspar\Desktop\ChemQuark\Src\GameStoichiometric.dfm</Transaction>
+    <Transaction>2013/01/30 21:25:26.880.pas,C:\Users\Gaspar\Desktop\DB\DB_Integrator.pas=</Transaction>
+    <Transaction>2013/01/30 21:25:26.880.dfm,C:\Users\Gaspar\Desktop\DB\DB_Integrator.dfm=</Transaction>
+    <Transaction>2013/01/30 21:37:59.474.pas,C:\Users\Gaspar\Desktop\ChemQuark\Src\DB_Integrator.pas=</Transaction>
+    <Transaction>2013/01/30 21:37:59.474.dfm,C:\Users\Gaspar\Desktop\ChemQuark\Src\DB_Integrator.dfm=</Transaction>
+    <Transaction>2013/02/02 15:36:19.044.pas,C:\Users\Gaspar\Desktop\ChemQuark\Unit2.pas=C:\Users\Gaspar\Desktop\ChemQuark\Src\SendingPoints.pas</Transaction>
+    <Transaction>2013/02/02 15:36:19.044.dfm,C:\Users\Gaspar\Desktop\ChemQuark\Unit2.dfm=C:\Users\Gaspar\Desktop\ChemQuark\Src\SendingPoints.dfm</Transaction>
+    <Transaction>2013/02/02 18:04:50.440.pas,C:\Users\Gaspar\Desktop\ChemQuark\Unit1.pas=C:\Users\Gaspar\Desktop\ChemQuark\Src\Modulo.pas</Transaction>
+    <Transaction>2013/02/02 18:20:07.948.pas,C:\Users\Gaspar\Desktop\ChemQuark\Src\Modulo.pas=</Transaction>
+    <Transaction>2013/02/03 22:29:50.514.pas,C:\Users\Gaspar\Desktop\ChemQuark\Unit1.pas=C:\Users\Gaspar\Desktop\ChemQuark\Src\Insert_Stoichiometric.pas</Transaction>
+    <Transaction>2013/02/03 22:29:50.514.dfm,C:\Users\Gaspar\Desktop\ChemQuark\Unit1.dfm=C:\Users\Gaspar\Desktop\ChemQuark\Src\Insert_Stoichiometric.dfm</Transaction>
+    <Transaction>2013/02/06 21:20:22.889.pas,C:\Users\Gaspar\Desktop\ChemQuark\Unit1.pas=C:\Users\Gaspar\Desktop\ChemQuark\Src\TeacherMode.pas</Transaction>
+    <Transaction>2013/02/06 21:20:22.918.dfm,C:\Users\Gaspar\Desktop\ChemQuark\Unit1.dfm=C:\Users\Gaspar\Desktop\ChemQuark\Src\TeacherMode.dfm</Transaction>
+    <Transaction>2013/02/06 23:38:52.047.pas,C:\Users\Gaspar\Desktop\ChemQuark\Src\TeacherMode.pas=</Transaction>
+    <Transaction>2013/02/06 23:38:52.047.dfm,C:\Users\Gaspar\Desktop\ChemQuark\Src\TeacherMode.dfm=</Transaction>
+    <Transaction>2013/02/13 13:17:34.121.pas,C:\Users\Gaspar\Desktop\ChemQuark\Unit1.pas=C:\Users\Gaspar\Desktop\ChemQuark\Src\Geometry.pas</Transaction>
+    <Transaction>2013/02/13 13:17:34.130.dfm,C:\Users\Gaspar\Desktop\ChemQuark\Unit1.dfm=C:\Users\Gaspar\Desktop\ChemQuark\Src\Geometry.dfm</Transaction>
+    <Transaction>2013/02/13 16:31:35.254.pas,C:\Users\Gaspar\Desktop\ChemQuark\Src\Geometry.pas=</Transaction>
+    <Transaction>2013/02/13 16:31:35.254.dfm,C:\Users\Gaspar\Desktop\ChemQuark\Src\Geometry.dfm=</Transaction>
+    <Transaction>2013/02/13 18:20:32.441.pas,C:\Users\Gaspar\Desktop\ChemQuark\Unit1.pas=C:\Users\Gaspar\Desktop\ChemQuark\Src\Geometry.pas</Transaction>
+    <Transaction>2013/02/13 18:20:32.441.dfm,C:\Users\Gaspar\Desktop\ChemQuark\Unit1.dfm=C:\Users\Gaspar\Desktop\ChemQuark\Src\Geometry.dfm</Transaction>
+    <Transaction>2013/02/16 15:01:49.055.pas,C:\Users\Gaspar\Desktop\ChemQuark\Unit1.pas=C:\Users\Gaspar\Desktop\ChemQuark\Src\Sound.pas</Transaction>
+    <Transaction>2013/02/16 15:17:46.630.pas,C:\Users\Gaspar\Desktop\ChemQuark\Src\Sound.pas=</Transaction>
+    <Transaction>2013/02/16 15:56:20.984.pas,C:\Users\Gaspar\Desktop\ChemQuark\Unit1.pas=C:\Users\Gaspar\Desktop\ChemQuark\Src\Sound.pas</Transaction>
+    <Transaction>2013/03/04 20:18:05.005.pas,C:\Users\Gaspar\Desktop\ChemQuark\Src\GameSelection.pas=</Transaction>
+    <Transaction>2013/03/04 20:18:05.010.dfm,C:\Users\Gaspar\Desktop\ChemQuark\Src\GameSelection.dfm=</Transaction>
+    <Transaction>2013/03/05 20:27:34.726.pas,C:\Users\Gaspar\Desktop\ChemQuark\Unit1.pas=C:\Users\Gaspar\Desktop\ChemQuark\Src\Manual.pas</Transaction>
+    <Transaction>2013/03/05 20:27:34.726.dfm,C:\Users\Gaspar\Desktop\ChemQuark\Unit1.dfm=C:\Users\Gaspar\Desktop\ChemQuark\Src\Manual.dfm</Transaction>
+    <Transaction>2013/04/01 11:42:23.731.pas,F:\Obstáculo temporário\Mais atual Projeto Java\ChemQuark\Unit1.pas=F:\Obstáculo temporário\Mais atual Projeto Java\ChemQuark\Src\ManualVideo.pas</Transaction>
+    <Transaction>2013/04/01 11:42:23.731.dfm,F:\Obstáculo temporário\Mais atual Projeto Java\ChemQuark\Unit1.dfm=F:\Obstáculo temporário\Mais atual Projeto Java\ChemQuark\Src\ManualVideo.dfm</Transaction>
+    <Transaction>2013/04/07 10:26:42.145.pas,C:\Users\Gaspar\Desktop\ChemQuark\Unit1.pas=C:\Users\Gaspar\Desktop\ChemQuark\Src\Load.pas</Transaction>
+    <Transaction>2013/04/07 10:26:42.165.dfm,C:\Users\Gaspar\Desktop\ChemQuark\Unit1.dfm=C:\Users\Gaspar\Desktop\ChemQuark\Src\Load.dfm</Transaction>
+    <Transaction>2013/04/07 14:03:25.781.pas,C:\Users\Gaspar\Desktop\ChemQuark\Unit1.pas=C:\Users\Gaspar\Desktop\ChemQuark\Src\BackForm.pas</Transaction>
+    <Transaction>2013/04/07 14:03:25.824.dfm,C:\Users\Gaspar\Desktop\ChemQuark\Unit1.dfm=C:\Users\Gaspar\Desktop\ChemQuark\Src\BackForm.dfm</Transaction>
+    <Transaction>2013/04/07 14:35:10.781.pas,C:\Users\Gaspar\Desktop\ChemQuark\Src\BackForm.pas=</Transaction>
+    <Transaction>2013/04/07 14:35:10.781.dfm,C:\Users\Gaspar\Desktop\ChemQuark\Src\BackForm.dfm=</Transaction>
+    <Transaction>2013/04/14 18:16:06.586.pas,C:\Users\Gaspar\Desktop\ChemQuark\Unit1.pas=C:\Users\Gaspar\Desktop\ChemQuark\Src\Login.pas</Transaction>
+    <Transaction>2013/04/14 18:16:06.586.dfm,C:\Users\Gaspar\Desktop\ChemQuark\Unit1.dfm=C:\Users\Gaspar\Desktop\ChemQuark\Src\Login.dfm</Transaction>
+    <Transaction>2013/04/14 20:59:39.290.pas,C:\Users\Gaspar\Desktop\ChemQuark\Unit1.pas=C:\Users\Gaspar\Desktop\ChemQuark\Src\Register.pas</Transaction>
+    <Transaction>2013/04/14 20:59:39.290.dfm,C:\Users\Gaspar\Desktop\ChemQuark\Unit1.dfm=C:\Users\Gaspar\Desktop\ChemQuark\Src\Register.dfm</Transaction>
+    <Transaction>2013/04/14 21:43:54.519.pas,C:\Users\Gaspar\Desktop\ChemQuark\Unit1.pas=C:\Users\Gaspar\Desktop\ChemQuark\Src\Master.pas</Transaction>
+    <Transaction>2013/04/14 21:43:54.519.dfm,C:\Users\Gaspar\Desktop\ChemQuark\Unit1.dfm=C:\Users\Gaspar\Desktop\ChemQuark\Src\Master.dfm</Transaction>
+    <Transaction>2013/04/14 22:02:11.642.pas,C:\Users\Gaspar\Desktop\ChemQuark\Unit1.pas=C:\Users\Gaspar\Desktop\ChemQuark\Src\Tip.pas</Transaction>
+    <Transaction>2013/04/14 22:02:11.642.dfm,C:\Users\Gaspar\Desktop\ChemQuark\Unit1.dfm=C:\Users\Gaspar\Desktop\ChemQuark\Src\Tip.dfm</Transaction>
+  </Transactions>
+</BorlandProject>
